@@ -54,18 +54,7 @@ def installff():
 _ = installff()
 
 def connect_to_google_sheet_chatbackup(name):
-    google_key = {
-        "type": "service_account",
-        "project_id": "tggg-352700",
-        "private_key_id": "34df635c088d54fb2d181d16a6779dd1cb6f0818",
-        "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDV8ioO6XIR1kxx\n8NvQVWxor/GtCwteK3I7hP0UKS0BxwX1I2HcudLFxcrLlScFPwtxfep4BmfyJKB0\ndZ+OFxPxilUFshvwLIHaacGPqe68MEDp+5t6GLW2BVX8TbSuqMEbZZb+MdqdtYfR\n1BlPy9ZaozxM54eIXVtgstAdwqZlX52FO0DGOSZH1d1jN5ZdWMY6Qxri1Sf3r1iz\ngybhtC1u548ypzrWnig2/VpwWx8p/Y8rvRCHRFY0K9+dUjfoaMauNlCLqQ4NbLcn\nbI2jQNP0sIyo/8ruFjHYUQQW6Aktj+ADIvounendXHeU2vEEqL21YGxQ7GWZ5Rzp\nxM2coB1dAgMBAAECggEAA0sYhE/p+RtRju7Ju3HChZ6xENxa1EbFRI7zWbRD5Jic\nighS5n5tH60/8L/+20ZRVfG9wmjlgGU5m8FUb5qsVxYC4V+7WAhKBsOE/sH7Z6Xd\n10blFE09aCwPMEnpQ50GZ/ZkNiKB/oEqXOZabg+HC7B36lPQEsnOcR/KM1hpOPs8\nw/NoeH/UtGYVP8nBuR/8d+UyNaRo84W6CLjH3tqyDVgwKgF/hSEQmDUYfQ8XnD4+\nLAdhlEE//jFH1t9hp5X3SYvdeh4rmc8A7d5gRnDcDgZBHRVQs3+Q02fchJxsseeY\nC+FmyNJD7YYD+vWsrPca8YIyIJpZgCrPErGiREgzIwKBgQD3fDe1vWkA8MEhqTyk\ngUUASvHytnW/x5VEwniOh37xZx4d2dM7xdTJ6QPQ6EUNG4U3fUKcEPCGqvReD4e8\nAM01IgkSs7wKmtz3rDT72/q4xBB+Jt+BBCPG+InVKXBlTBfwCGRHEKLK9mcDMz+k\ntCXOAQnH6EXXUwQPyGjkPr9COwKBgQDdToq7UHcxrHt3y1GkiSEy3pyfm5K6IHNY\nIY5mM2iPS5s22UX4OV3Nd1+q52TySz19+PFl4P3ZvkR7YetWvMbIL+WXVwV86yel\ni7fvSuXj/A+iEVk6RTt1wC4PNvy+UKBBUMhCI1brBRX6HkdwWuL2/gUb5UB57fwv\nTWsQAGtNRwKBgHW5oiqSoktvOv/PKGi8kV01SWiCgPqsbwYZWA28yJb+zWW3w3Kw\nhatSa51Jj+dPSwx9Sl1A9Zmp4rqHurKk0vjOavB5jR6iUjCCu2V/XAHeSlYoGbOe\ni4JPoglDQBL/ondtFn5znGzdz1zHWSP5Ce63sbZleCuYctsrIzJH4uUXAoGBAJh4\nZFxpM7Wlf+soyTbyw0yo0n+kT5KsiMtPUyxWftM649UGHI7H9zh35hF5GrNT4ynH\nOYlXWY2K6OOYsusvZETHuwZpjf5ihQ4pFLBoibppDtw515+t0yltHk6dM8RrB/34\nCgCHGHsTJfEMq2tdMsG4gQyXBbT7oaN1Uy3THBpBAoGAJFikLge76hh8iUpVkTS1\nkXjfLDCD796G//idf5Ioaw6VzEm1FkDQdRNh7bCeWEAqtD7FXArnxS6/GqdFh+DD\nP0WXLHHLXxiRawhhpPdYgpr/KhIhcvRi9eszry/pNr5CBAmgvinTfOuUwKRlUdoq\nOe9KOcEzq3LGK9d0E6DxWuM=\n-----END PRIVATE KEY-----\n",
-        "client_email": "tg-507@tggg-352700.iam.gserviceaccount.com",
-        "client_id": "116440635751867777532",
-        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-        "token_uri": "https://oauth2.googleapis.com/token",
-        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/tg-507%40tggg-352700.iam.gserviceaccount.com"
-    }
+    google_key = 
 
     with open("google_key.json", "w") as outfile:
         json.dump(google_key, outfile)
