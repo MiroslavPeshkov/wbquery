@@ -54,7 +54,7 @@ def installff():
 _ = installff()
 
 def connect_to_google_sheet_chatbackup(name):
-    google_key = 
+    google_key = None
 
     with open("google_key.json", "w") as outfile:
         json.dump(google_key, outfile)
