@@ -47,6 +47,7 @@ firefoxOptions.add_argument('--allow-running-insecure-content')
 firefoxOptions.binary = FIREFOXPATH
 
 st.title('Сбор данных по запросам пользователей')
+query = st.text_input('Введите поисковой запрос')
 but = st.button('Пуск')
 
 @st.experimental_singleton
@@ -69,7 +70,7 @@ def connect_to_google_sheet_chatbackup(name):
     worksheet = sh.worksheet(name)
 
     return worksheet
-def get_data():
+def get_data(query):
     URL = 'https://seller.wildberries.ru'
     browser = webdriver.Firefox(executable_path=r'/home/appuser/venv/bin/geckodriver.exe', options=firefoxOptions)
     browser.get(URL)
@@ -104,7 +105,7 @@ def get_data():
     time.sleep(5)
     browser.get('https://seller.wildberries.ru/popular-search-requests')
     time.sleep(5)
-    query = 'плать'
+#     query = 'плать'
     query_input = browser.find_element(By.XPATH, "//input[@id='search']")
     query_input.send_keys(query)
     time.sleep(5)
@@ -169,4 +170,4 @@ def get_data():
 if __name__ == '__main__':
     if but:
         installff()
-        get_data()
+        get_data(query)
