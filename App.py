@@ -84,7 +84,7 @@ def get_data(query):
                                   "//span[@class = 'text--yon+U size-h6--1fGDJ isBold--xI37s isUpperCase--K1o9t']")
     browser.execute_script("arguments[0].click();", button)
     time.sleep(50)
-    worksheet_ = connect_to_google_sheet_chatbackup(3)
+    worksheet_ = connect_to_google_sheet_chatbackup('code')
     data_ = worksheet_.get_all_values()
     headers = data_.pop(0)
     df_ = get_as_dataframe(worksheet_, parse_dates=True,
@@ -139,34 +139,27 @@ def get_data(query):
                 cols = row.find_all('td')
                 cols = [ele.text.strip().replace('\xa0', '') for ele in cols]
                 data.append([ele for ele in cols if ele])
-    data = list(filter(None, data))
-    now_date = datetime.datetime.now() + timedelta(days=5)
-    now_date = now_date.strftime("%d.%m.%Y")
-    df = pd.DataFrame(data, columns=['Запрос', 'Данные'])
-    df['Дата'] = now_date
-    worksheet_1 = connect_to_google_sheet_chatbackup('База данных')
-    # сделать в ГС название колонок
-    data_stat = worksheet_1.get_all_values()
-    headers_ = data_stat.pop(0)
-    df_from_db = pd.DataFrame(data_stat, columns=headers_)
-    df_all = pd.concat([df_from_db, df])
-    set_with_dataframe(worksheet_1, df_all)
-    df_all = df_all.drop_duplicates(subset=['Дата', 'Запрос'])
-    df_all['Данные'] = df_all['Данные'].astype('int')
-    df_itog = df_all.sort_values(by=['Запрос', 'Дата'])
-    df_itog['Изменение запросов в %'] = df_itog[['Запрос', 'Данные']].groupby('Запрос').pct_change()
-    df_itog = df_itog.reset_index()
-    del df_itog['index']
-    worksheet_final = connect_to_google_sheet_chatbackup('Статистика запросов')
-    worksheet_final.clear()
-    set_with_dataframe(worksheet_final, df_itog)
-    df_itog_ = df_itog.sort_values(by=['Изменение запросов в %'], ascending=False, na_position='last')
-    df_itog_ = df_itog_.reset_index()
-    del df_itog_['index']
-    worksheet_final = connect_to_google_sheet_chatbackup('Группировка статистики по изменению запросов')
-    worksheet_final.clear()
-    set_with_dataframe(worksheet_final, df_itog_)
-
+      data = list(filter(None, data))
+      now_date = datetime.datetime.now()
+      now_date = now_date.strftime("%d.%m.%Y")
+      df = pd.DataFrame(data, columns = ['Запрос', 'Данные'])
+      df['Дата'] = now_date
+      worksheet_1 = connect_to_google_sheet_chatbackup('База данных')
+      # сделать в ГС название колонок
+      data_stat = worksheet_1.get_all_values()
+      headers_ = data_stat.pop(0)
+      df_from_db= pd.DataFrame(data_stat , columns=headers_)
+      df_all = pd.concat([df_from_db, df])
+      set_with_dataframe(worksheet_1, df_all)
+      df_all= df_all.drop_duplicates(subset = ['Дата', 'Запрос'])
+      df_all['Данные'] = df_all['Данные'].astype('int')
+      df_itog = df_all.sort_values(by = ['Запрос', 'Дата'])
+      df_itog['Изменение запросов в %'] = df_itog[['Запрос', 'Данные']].groupby('Запрос').pct_change()
+      df_itog = df_itog.reset_index()
+      del df_itog['index']
+      df_from_db = df_itog.sort_values(by = ['Данные', 'Дата', 'Запрос'],  ascending=False)
+      worksheet_1 = connect_to_google_sheet_chatbackup('Статистика запросов')
+      set_with_dataframe(worksheet_1, df_from_db)
 if __name__ == '__main__':
     if but:
         installff()
