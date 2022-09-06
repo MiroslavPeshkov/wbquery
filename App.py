@@ -144,7 +144,7 @@ def get_data(query):
       now_date = now_date.strftime("%d.%m.%Y")
       df = pd.DataFrame(data, columns = ['Запрос', 'Данные'])
       df['Дата'] = now_date
-      worksheet_1 = connect_to_google_sheet_chatbackup('База данных')
+      worksheet_1 = connect_to_google_sheet_chatbackup('Запросы с ВБ')
       # сделать в ГС название колонок
       data_stat = worksheet_1.get_all_values()
       headers_ = data_stat.pop(0)
@@ -158,7 +158,7 @@ def get_data(query):
       df_itog = df_itog.reset_index()
       del df_itog['index']
       df_from_db = df_itog.sort_values(by = ['Данные', 'Дата', 'Запрос'],  ascending=False)
-      worksheet_1 = connect_to_google_sheet_chatbackup('Статистика запросов')
+      worksheet_1 = connect_to_google_sheet_chatbackup('Рейтинг запросов')
       set_with_dataframe(worksheet_1, df_from_db)
 if __name__ == '__main__':
     if but:
