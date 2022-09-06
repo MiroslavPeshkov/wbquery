@@ -103,7 +103,8 @@ def get_data(query):
     code = str(code)
     code_box = browser.find_element(By.XPATH, "//input[@autocomplete = 'off']")
     code_box.send_keys(code)
-    time.sleep(20)
+    time.sleep(30)
+    st.write('Fill code')
     # TODO Change user
     user_2 = browser.find_element(By.XPATH, "//button[@class = 'SelectInput__kUclwApgbL']")
     browser.execute_script("arguments[0].click();", user_2)
@@ -137,6 +138,7 @@ def get_data(query):
             cols = [ele.text.strip().replace('\xa0', '') for ele in cols]
             data.append([ele for ele in cols if ele])
     for i in range(10):
+        st.write(f'Done page - {i+1}')
         click_but = browser.find_elements(By.XPATH, "//button[@class='Pagination-icon-button__3GrEfjKw4D']")[-1]
         browser.execute_script("arguments[0].click();", click_but)
         time.sleep(4)
@@ -170,6 +172,7 @@ def get_data(query):
     df_from_db = df_itog.sort_values(by = ['Данные', 'Дата', 'Запрос'],  ascending=False)
     worksheet_1 = connect_to_google_sheet_chatbackup('Рейтинг запросов')
     set_with_dataframe(worksheet_1, df_from_db)
+    st.write('Post to GS')
 if __name__ == '__main__':
     if but:
         installff()
