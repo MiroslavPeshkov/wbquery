@@ -88,7 +88,7 @@ def get_data(query):
     number_ = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@data-find = 'phone-input']")))
     time.sleep(1)
     # TODO change number
-    number_.send_keys("9156005045") #9055824400
+    number_.send_keys("9055824400")
     time.sleep(1)
     button = browser.find_element(By.XPATH,
                                   "//span[@class = 'text--yon+U size-h6--1fGDJ isBold--xI37s isUpperCase--K1o9t']")
@@ -106,13 +106,13 @@ def get_data(query):
     time.sleep(30)
     st.write('Fill code')
     # TODO Change user
-    user_2 = browser.find_element(By.XPATH, "//button[@class = 'SelectInput__kUclwApgbL']")
-    browser.execute_script("arguments[0].click();", user_2)
-    check = browser.find_elements(By.XPATH,
-                                  "//label[@class = 'Checkbox__xJ0jK0oJWs Checkbox--radio__dBCwMyX++J Checkbox--darkPurple__mPucK0b59h']")[
-        -1]
-    browser.execute_script("arguments[0].click();", check)
-    browser.execute_script("arguments[0].click();", check)
+#     user_2 = browser.find_element(By.XPATH, "//button[@class = 'SelectInput__kUclwApgbL']")
+#     browser.execute_script("arguments[0].click();", user_2)
+#     check = browser.find_elements(By.XPATH,
+#                                   "//label[@class = 'Checkbox__xJ0jK0oJWs Checkbox--radio__dBCwMyX++J Checkbox--darkPurple__mPucK0b59h']")[
+#         -1]
+#     browser.execute_script("arguments[0].click();", check)
+#     browser.execute_script("arguments[0].click();", check)
     time.sleep(5)
     browser.get('https://seller.wildberries.ru/popular-search-requests')
     time.sleep(5)
