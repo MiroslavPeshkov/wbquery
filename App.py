@@ -58,8 +58,18 @@ def installff():
 _ = installff()
 
 def connect_to_google_sheet_chatbackup(name):
-    google_key = None
-
+    google_key =  {
+          "type": "service_account",
+          "project_id": "wbquery-361714",
+          "private_key_id": "ae693b156f554a224ce1721e7c0baa429f57055f",
+          "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDJDkUS/RZY+PSD\nwfC1sDeB+2vVMGKAZrC0XNyi8fKd981eQvQa09EF1WvOfk/FSDf5WXhRz8usefqD\nlRxs+0UYMVp5v1nsWrOLmcJDA0eMZRe26oESZPEHKWBjr7pAA271dJnODA+lIfRh\nfiP1I0UYR5VF3kvFSDoX0TM2EB1cJNz6WHA3j1ron4Wv7EufbrZdwO7fSVTzRp7z\n+O5lhFZTnvb9fVlhELFuDUgulLHIeDGY6HgO+9TxnlZjohYdtFJhTvMEkUw7vILc\ncszn3Is9cus6GwyZIY2wWIDr9QgpmUEUR3BT6wdNNlDTFeFI2sTDOaYFlBt9CHGH\nwHkG50FpAgMBAAECgf8FPyTAFox0FCeGOnefYpnXVS2iUM8kyqWuSCGkgnoOyM/I\nftM8X/x0ZvZCIpDOynrH5wMj5oS76boVLdmh08Ig8UU10swQm1uM/mRsRe0w8g7a\nlyB47DCIrYgvSqo4szOSEKcdhA+A5skLl5f8Lavjed5LW5N7DusDZeBlk3C+7B06\n9MUuWkdvIdSw0ElcMC5viLBdEYHzXmb35zbPz5b1qoQNsYFPNqI6Jilq4QXiNrqs\npDcwhXw4cMdGSDReEiRvUhbhNQjC3rDhPwTErEFv2xWa8by2Xk0vJ6vRvFoi4cF5\nkN5Pg+W9rOPFUuV9rCGftRznC4dNrZgJwbwNv+ECgYEA+OyRU72Tubc8YKEjR06A\nfy+tZYX+cTAU18pWT0t8KFG1MByqQW0G4jKXNGSzgb5d95uLAQbgzrbXFwIi++Sb\neZz5YzyxCX9cHuvNx2UXcjrTSYBm0BAqNFbarfsItkODx9ho1DrlN39B3Mn+7RgD\ntIbbLhnMsHT5hcsM52s3kOECgYEAzsVcpVKt22Swzz1ofezGThu2aZ4znmAl2i1d\n5Amjo+glQvz/rv9bSlM4Vm1OchVBAzLA8yEV7HYJ0XvraaZLCHK5wZUgw6581dhx\nj1YtCAdm7kL7vS88AaWr0LwS/ewFYwxqvIGKWOINQFgxAr3nIrAvE1+bOXyuQ8jP\ncGvc2YkCgYAcTuL0EAIlw6XVI14ctNu+GxDwE73s51fndnY8TExRVYFyeEAQcrKu\ntKwnZDBZ1+ldyE2Vj0+vknGBh1etJ8FaojRmSbekadxzE8PyIhf5gKEYocaPcNcr\n3pi94meKOsFYz86UHCKHHizCTCJ2mh2JwTBZ3Ms/Yf4ibgYIp1PJYQKBgQCG0hEy\nitJptyHCPxwe33/99fveqhSmM7L6q5II2nAks314TFa62C3CLLkTQXpg0JLvbux4\nmx4cbGrCeLZq0M8j1wpfusj+Tot/M/33pA0AqzLmMC7MkDvkJw38sGUBxB9PEg2W\nlDCM+/f/+IEcdI59A7vuOeyQc0d9UzZO60W5YQKBgQDIOU8QZmUqhGqC+idio92n\ne+/WEvbyJ9HLa4KITRKVTvhAzIbCVpS+5X+HKYgdsGMn4xBDqw4V78Dvj5fU8Qcl\nz+KlwQaZrJXyatlRkfo3nMhJWzYwcbEk/VQzk+XULPzIUg7ZUF/Zj6APmWRzIIB/\n9QdLSdRS1yqkrr0qKA/7BQ==\n-----END PRIVATE KEY-----\n",
+          "client_email": "wb-query@wbquery-361714.iam.gserviceaccount.com",
+          "client_id": "102079454754148809221",
+          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+          "token_uri": "https://oauth2.googleapis.com/token",
+          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/wb-query%40wbquery-361714.iam.gserviceaccount.com"
+        }
     with open("google_key.json", "w") as outfile:
         json.dump(google_key, outfile)
 
